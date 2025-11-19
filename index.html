@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Disease Prediction</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #e8f5e9, #f1f8e9);
+        }
+        .container {
+            width: 450px;
+            margin: 50px auto;
+            padding: 25px;
+            background: #ffffff;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.15);
+            border-radius: 12px;
+        }
+        h2 {
+            text-align: center;
+            color: #2e7d32;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        label {
+            font-weight: 500;
+            color: #1b5e20;
+            margin-top: 10px;
+            display: block;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 2px solid #c8e6c9;
+            border-radius: 6px;
+            background: #f9fff9;
+        }
+        button {
+            width: 100%;
+            background: #43a047;
+            color: white;
+            padding: 12px;
+            margin-top: 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+        .result-box {
+            margin-top: 25px;
+            padding: 15px;
+            background: #e8f5e9;
+            border-left: 5px solid #43a047;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>🌾 Crop Disease Predictor</h2>
+
+    <form action="/predict" method="POST">
+
+        <!-- Sowing Date -->
+        <label>Sowing Date</label>
+        <input type="date" name="Sowing Date" required>
+
+        <!-- Stage -->
+        <label>Crop Growth Stage (Squaring / Bud Formation)</label>
+        <input type="text" name="Crop Growth Stage (Squaring / Bud Formation)" required>
+
+        <button type="submit">Predict Disease</button>
+    </form>
+
+    {% if result %}
+    <div class="result-box">
+        <h3>Predicted Disease: {{ result }}</h3>
+    </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
+
+
